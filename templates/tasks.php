@@ -1,5 +1,5 @@
 <?php
-$tasks = new crud();
+$tasks = new TaskModel();
 if ($tasks->read()) {
     foreach ($tasks->read() as $task) {
         if (!$task['t_fulfil'] == 0) {
