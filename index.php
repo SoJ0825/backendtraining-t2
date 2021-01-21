@@ -26,7 +26,7 @@ require_once("./templates/header.php");
                     <!-- Task Name -->
                     <div class="form-group p-2">
                         <div class="">
-                            <input type="text" name="t_task" id="t_task" class="form-control" value="">
+                            <input type="text" name="task" id="task" class="form-control" value="">
                         </div>
                     </div>
 
