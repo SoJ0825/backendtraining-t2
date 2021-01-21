@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021 年 01 月 17 日 01:09
+-- 產生時間： 2021 年 01 月 21 日 23:09
 -- 伺服器版本： 10.4.17-MariaDB
 -- PHP 版本： 8.0.0
 
@@ -30,16 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `tasks` (
   `t_id` int(11) NOT NULL,
   `t_task` text NOT NULL,
-  `t_fulfil` tinyint(1) NOT NULL DEFAULT 0
+  `t_completed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 傾印資料表的資料 `tasks`
 --
 
-INSERT INTO `tasks` (`t_id`, `t_task`, `t_fulfil`) VALUES
+INSERT INTO `tasks` (`t_id`, `t_task`, `t_completed`) VALUES
 (86, '完成Todo-List', 1),
-(87, '完成 backendtraining-t1', 0);
+(87, '完成 backendtraining-t1', 1);
 
 --
 -- 已傾印資料表的索引
@@ -59,7 +59,7 @@ ALTER TABLE `tasks`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
