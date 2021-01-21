@@ -1,5 +1,5 @@
 <?php
-class MySQL
+class databaseHandle
 {
     private $host = "localhost";
     private $dbname = "todolist";

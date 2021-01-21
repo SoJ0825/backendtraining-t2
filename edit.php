@@ -3,11 +3,11 @@ include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
 
 
-$tasks = new TaskModel();
+$taskModel = new taskModel();
 
-$task = $tasks->edit($_GET['t_id']);
-$t_id = $task['t_id'];
-$t_task = $task['t_task'];
+$taskData = $taskModel->edit($_GET['id']);
+$taskId = $taskData['t_id'];
+$task = $taskData['t_task'];
 
 
 ?>
@@ -22,11 +22,11 @@ $t_task = $task['t_task'];
 <div class="row">
     <div class="col-md-7 mx-auto">
         <!-- form input -->
-        <form method="POST" action="process.php?send=update&t_id=<?= $t_id ?>">
+        <form method="POST" action="process.php?send=update&id=<?= $taskId ?>">
 
             <div class="form-group">
                 <h3>Content </h3>
-                <textarea class="form-control" name="t_task" rows="3" required><?php echo $t_task ?></textarea>
+                <textarea class="form-control" name="task" rows="3" required><?php echo $task ?></textarea>
             </div>
 
             <div class="d-flex justify-content-center">

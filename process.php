@@ -1,30 +1,30 @@
 <?php
 include('./includes/class-autoload.inc.php');
 
-$tasks = new TaskModel();
+$taskModel = new taskModel();
 if (isset($_POST['submit'])) {
-    $t_task = $_POST['t_task'];
+    $t_task = $_POST['task'];
 
-    $tasks->create($t_task);
+    $taskModel->create($t_task);
 
     header("location:{$_SERVER['HTTP_REFERER']}");
     // header("location:{$_SERVER['HTTP_ORIGIN']}/todolist/index.php");
     // header("Location: index.php");
 } else if ($_GET['send'] === 'delete') {
-    $t_id = $_GET['t_id'];
-    $tasks->delete($t_id);
+    $t_id = $_GET['id'];
+    $taskModel->delete($t_id);
 
     header("location:{$_SERVER['HTTP_REFERER']}");
 } else if ($_GET['send'] === 'update') {
-    $t_id = $_GET['t_id'];
-    $t_task = $_POST['t_task'];
+    $t_id = $_GET['id'];
+    $t_task = $_POST['task'];
 
-    $tasks->update($t_id, $t_task);
+    $taskModel->update($t_id, $t_task);
 
     header("location: index.php");
-} else if ($_GET['send'] === 'fulfil') {
-    $t_id = $_GET['t_id'];
-    $tasks->fulfil($t_id);
+} else if ($_GET['send'] === 'completed') {
+    $t_id = $_GET['id'];
+    $taskModel->completed($t_id);
 
     header("location:{$_SERVER['HTTP_REFERER']}");
 }

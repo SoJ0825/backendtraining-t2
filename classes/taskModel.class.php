@@ -1,5 +1,5 @@
 <?php
-class TaskModel extends MySQL
+class taskModel extends databaseHandle
 {
 
     public function create($t_task)
@@ -44,9 +44,9 @@ class TaskModel extends MySQL
         $statement->execute([$t_id]);
     }
 
-    public function fulfil($t_id)
+    public function completed($t_id)
     {
-        $sql = "UPDATE tasks SET t_fulfil=1 WHERE t_id=?";
+        $sql = "UPDATE tasks SET t_completed=1 WHERE t_id=?";
         $statement = $this->pdo()->prepare($sql);
         $statement->execute([$t_id]);
     }
