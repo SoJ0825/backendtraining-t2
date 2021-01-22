@@ -2,22 +2,7 @@
 $taskModel = new taskModel();
 if ($taskModel->read()) {
     foreach ($taskModel->read() as $taskData) {
-        if (!$taskData['t_completed'] == 0) {
-            echo <<<EOT
-            <div class="container row pr-0 border-bottom mb-2 mx-0 px-0 d-flex justify-content-center col-md-12">
-                <div class="col-md-9 span_a"><del>{$taskData['t_task']}</del></div>
-                <div class="col-md-3 p-1">
-                    <div class="container-fluid p-0">                    
-                        <a class='btn btn-success btn-block my-1 text-white disabled'><i class="fa fa-btn fa-thumbs-o-up"></i>Completed</a>
-                    </div>
-                  <div class="container-fluid d-flex justify-content-center p-0">
-                        <a class='btn btn-primary btn-block my-1 mr-1 text-white disabled'><i class="fa fa-btn fa-pencil"></i>Edit</a>
-                        <a href="process.php?send=delete&id={$taskData['t_id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
-                    </div>
-                </div>
-            </div>
-            EOT;
-        } else {
+        if ($taskData['t_completed'] == 0) {
             echo <<<EOT
             <div class="container row pr-0 border-bottom mb-2 mx-0 px-0 d-flex justify-content-center col-md-12">
                 <div class="col-md-9 span_a"><span>{$taskData['t_task']}</span></div>
@@ -29,6 +14,21 @@ if ($taskModel->read()) {
                         <a href="edit.php?id={$taskData['t_id']}" class='btn btn-primary btn-block my-1 mr-1'><i class="fa fa-btn fa-pencil"></i>Edit</a>
                         <a href="process.php?send=delete&id={$taskData['t_id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
                  </div>
+                </div>
+            </div>
+            EOT;
+        } else {
+            echo <<<EOT
+            <div class="container row pr-0 border-bottom mb-2 mx-0 px-0 d-flex justify-content-center col-md-12">
+                <div class="col-md-9 span_a"><del>{$taskData['t_task']}</del></div>
+                <div class="col-md-3 p-1">
+                    <div class="container-fluid p-0">                    
+                        <a class='btn btn-success btn-block my-1 text-white disabled'><i class="fa fa-btn fa-thumbs-o-up"></i>Completed</a>
+                    </div>
+                <div class="container-fluid d-flex justify-content-center p-0">
+                        <a class='btn btn-primary btn-block my-1 mr-1 text-white disabled'><i class="fa fa-btn fa-pencil"></i>Edit</a>
+                        <a href="process.php?send=delete&id={$taskData['t_id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
+                    </div>
                 </div>
             </div>
             EOT;
