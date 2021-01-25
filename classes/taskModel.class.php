@@ -20,7 +20,7 @@ class taskModel extends databaseHandle
         }
     }
 
-    public function edit($t_id)
+    public function select($t_id)
     {
         $sql = "SELECT * FROM tasks WHERE t_id = ?";
         $statement = $this->pdo()->prepare($sql);
