@@ -1,3 +1,6 @@
+<?php 
+    require 'db_conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +45,7 @@
 
                 <div class="panel-body">
                     <!-- New Task Form -->
-                    <form action="" method="POST" class="form-horizontal">
+                    <form action="app/add.php" method="POST" class="form-horizontal">
                         <!-- Task Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
@@ -87,15 +90,38 @@
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-btn fa-trash"></i>delete</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="col-sm-6">Homework</td>
-                                <!-- Task Buttons -->
-                                <td class="col-sm-6">
-                                        <button type="submit" class="btn btn-success"><i class="fa fa-btn fa-thumbs-o-up"></i>completed</button>
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-pencil"></i>edit</button>
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-btn fa-trash"></i>delete</button>
-                                </td>
-                            </tr>
+
+                            <?php
+                            if ($result->num_rows > 0) {
+
+                            while($row = $result->fetch_assoc()) {
+                            echo "<tr>"; ?>
+                            <?php echo "<td class=\"col-sm-6\">"; ?>
+
+                            <?php if ($row['is_checked'] == 1): ?>
+                                <del><?php echo $row['task']; ?></del>
+                            <?php else: ?>
+                                <?php echo $row['task']; ?> 
+                            <?php endif ?>                           
+
+                            
+                            <?php echo "</td>"; ?>
+                            <td class="col-sm-6">
+                                <button type="submit" class="btn btn-primary"><a href="app/checked.php?checked_id=<?php echo $row['id'] ?>"><i class="fa fa-btn fa-pencil"></i>completed</a> </button>
+                                <button type="submit" class="btn btn-primary"><a href="app/edit.php?edit_task_id=<?php echo $row['id'] ?>"><i class="fa fa-btn fa-pencil"></i>edit</a> </button>
+                                <button type="submit" class="btn btn-danger"><a href="app/delete.php?del_task=<?php echo $row['id'] ?>"><i class="fa fa-btn fa-trash"></i>delete</a> </button>                                
+                            </td>
+                            
+                            
+
+                            <?php  echo "</tr>"; ?>
+                            <?php
+                             }};
+                            ?> 
+
+                            
+                            
+                           
                         </tbody>
                     </table>
                 </div>
