@@ -22,7 +22,7 @@ $task = $taskData['t_task'];
 <div class="row">
     <div class="col-md-7 mx-auto">
         <!-- form input -->
-        <form method="POST" action="process.php?send=update&id=<?= $taskId ?>">
+        <form method="POST" action="process.php?send=update&id=<?php echo $taskId ?>">
 
             <div class="form-group">
                 <h3>Content </h3>
