@@ -2,13 +2,11 @@
 include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
 
-
 $taskModel = new TaskModel();
 
 $taskData = $taskModel->select($_GET['id']);
 $taskId = $taskData['user_id'];
 $task = $taskData['task'];
-
 
 ?>
 <div class="container-fluid  border-bottom bg-dark text-white">

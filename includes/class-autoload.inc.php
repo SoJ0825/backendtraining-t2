@@ -1,6 +1,4 @@
 <?php
-// include('./includes/class-autoload.inc.php');
-
 spl_autoload_register("autoload");
 
 function autoload($className)
