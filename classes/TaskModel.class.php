@@ -2,11 +2,11 @@
 class TaskModel extends DatabaseHandle
 {
 
-    public function create($t_task)
+    public function create($task)
     {
-        $sql = "INSERT INTO tasks(t_task) VALUES (?)";
+        $sql = "INSERT INTO tasks(task) VALUES (?)";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$t_task]);
+        $statement->execute([$task]);
     }
 
     public function read()
@@ -20,34 +20,34 @@ class TaskModel extends DatabaseHandle
         }
     }
 
-    public function select($t_id)
+    public function select($user_id)
     {
-        $sql = "SELECT * FROM tasks WHERE t_id = ?";
+        $sql = "SELECT * FROM tasks WHERE user_id = ?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$t_id]);
+        $statement->execute([$user_id]);
         $result = $statement->fetch();
 
         return $result;
     }
 
-    public function update($t_id, $t_task)
+    public function update($user_id, $task)
     {
-        $sql = "UPDATE tasks SET t_task=? WHERE t_id=?";
+        $sql = "UPDATE tasks SET task=? WHERE user_id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$t_task, $t_id]);
+        $statement->execute([$task, $user_id]);
     }
 
-    public function delete($t_id)
+    public function delete($user_id)
     {
-        $sql = "DELETE FROM tasks WHERE t_id=?";
+        $sql = "DELETE FROM tasks WHERE user_id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$t_id]);
+        $statement->execute([$user_id]);
     }
 
-    public function completed($t_id)
+    public function completed($user_id)
     {
-        $sql = "UPDATE tasks SET t_completed=1 WHERE t_id=?";
+        $sql = "UPDATE tasks SET completed=1 WHERE user_id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$t_id]);
+        $statement->execute([$user_id]);
     }
 }

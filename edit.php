@@ -6,8 +6,8 @@ require_once("./templates/header.php");
 $taskModel = new TaskModel();
 
 $taskData = $taskModel->select($_GET['id']);
-$taskId = $taskData['t_id'];
-$task = $taskData['t_task'];
+$taskId = $taskData['user_id'];
+$task = $taskData['task'];
 
 
 ?>
