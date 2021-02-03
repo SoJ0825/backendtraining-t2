@@ -1,5 +1,5 @@
 <?php
-$taskModel = new taskModel();
+$taskModel = new TaskModel();
 if ($taskModel->read()) {
     foreach ($taskModel->read() as $taskData) {
         if ($taskData['t_completed'] == 0) {

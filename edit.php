@@ -3,7 +3,7 @@ include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
 
 
-$taskModel = new taskModel();
+$taskModel = new TaskModel();
 
 $taskData = $taskModel->select($_GET['id']);
 $taskId = $taskData['t_id'];

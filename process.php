@@ -1,7 +1,7 @@
 <?php
 include('./includes/class-autoload.inc.php');
 
-$taskModel = new taskModel();
+$taskModel = new TaskModel();
 if (isset($_POST['submit'])) {
     $t_task = $_POST['task'];
 

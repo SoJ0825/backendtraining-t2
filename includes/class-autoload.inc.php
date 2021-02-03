@@ -9,8 +9,8 @@ function autoload($className)
     $ext = '.class.php';
     $fileName = $path . $className . $ext;
 
-    // if(!file_exists($fileName)){
-    //     return false;
-    // }
+    if (!file_exists($fileName)) {
+        return false;
+    }
     include_once $fileName;
 }

@@ -1,5 +1,5 @@
 <?php
-class taskModel extends databaseHandle
+class TaskModel extends DatabaseHandle
 {
 
     public function create($t_task)
