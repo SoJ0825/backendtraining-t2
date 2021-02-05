@@ -8,11 +8,11 @@ if ($taskModel->read()) {
                 <div class="col-md-9 span_a"><span>{$taskData['task']}</span></div>
                 <div class="col-md-3 p-1">
                     <div class="container-fluid p-0">                    
-                        <a href="process.php?send=completed&id={$taskData['user_id']}" class='btn btn-success btn-block my-1'><i class="fa fa-btn fa-thumbs-o-up"></i>Completed</a>
+                        <a href="process.php?send=completed&id={$taskData['id']}" class='btn btn-success btn-block my-1'><i class="fa fa-btn fa-thumbs-o-up"></i>Completed</a>
                     </div>
                 <div class="container-fluid d-flex justify-content-center p-0">
-                        <a href="edit.php?id={$taskData['user_id']}" class='btn btn-primary btn-block my-1 mr-1'><i class="fa fa-btn fa-pencil"></i>Edit</a>
-                        <a href="process.php?send=delete&id={$taskData['user_id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
+                        <a href="edit.php?id={$taskData['id']}" class='btn btn-primary btn-block my-1 mr-1'><i class="fa fa-btn fa-pencil"></i>Edit</a>
+                        <a href="process.php?send=delete&id={$taskData['id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
                  </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ if ($taskModel->read()) {
                     </div>
                 <div class="container-fluid d-flex justify-content-center p-0">
                         <a class='btn btn-primary btn-block my-1 mr-1 text-white disabled'><i class="fa fa-btn fa-pencil"></i>Edit</a>
-                        <a href="process.php?send=delete&id={$taskData['user_id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
+                        <a href="process.php?send=delete&id={$taskData['id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
                     </div>
                 </div>
             </div>

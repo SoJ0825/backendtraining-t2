@@ -20,34 +20,34 @@ class TaskModel extends DatabaseHandle
         }
     }
 
-    public function select($user_id)
+    public function select($id)
     {
-        $sql = "SELECT * FROM tasks WHERE user_id = ?";
+        $sql = "SELECT * FROM tasks WHERE id = ?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$user_id]);
+        $statement->execute([$id]);
         $result = $statement->fetch();
 
         return $result;
     }
 
-    public function update($user_id, $task)
+    public function update($id, $task)
     {
-        $sql = "UPDATE tasks SET task=? WHERE user_id=?";
+        $sql = "UPDATE tasks SET task=? WHERE id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$task, $user_id]);
+        $statement->execute([$task, $id]);
     }
 
-    public function delete($user_id)
+    public function delete($id)
     {
-        $sql = "DELETE FROM tasks WHERE user_id=?";
+        $sql = "DELETE FROM tasks WHERE id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$user_id]);
+        $statement->execute([$id]);
     }
 
-    public function completed($user_id)
+    public function completed($id)
     {
-        $sql = "UPDATE tasks SET completed=1 WHERE user_id=?";
+        $sql = "UPDATE tasks SET completed=1 WHERE id=?";
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute([$user_id]);
+        $statement->execute([$id]);
     }
 }

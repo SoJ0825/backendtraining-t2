@@ -8,19 +8,19 @@ if (isset($_POST['submit'])) {
 
     header("location:{$_SERVER['HTTP_REFERER']}");
 } else if ($_GET['send'] === 'delete') {
-    $user_id = $_GET['id'];
-    $taskModel->delete($user_id);
+    $id = $_GET['id'];
+    $taskModel->delete($id);
 
     header("location:{$_SERVER['HTTP_REFERER']}");
 } else if ($_GET['send'] === 'update') {
-    $user_id = $_GET['id'];
+    $id = $_GET['id'];
     $task = $_POST['task'];
-    $taskModel->update($user_id, $task);
+    $taskModel->update($id, $task);
 
     header("location: index.php");
 } else if ($_GET['send'] === 'completed') {
-    $user_id = $_GET['id'];
-    $taskModel->completed($user_id);
+    $id = $_GET['id'];
+    $taskModel->completed($id);
 
     header("location:{$_SERVER['HTTP_REFERER']}");
 }
