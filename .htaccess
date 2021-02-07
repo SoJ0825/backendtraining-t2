@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php !-f
+
+RewriteRule ^index$ index.php
+RewriteRule ^edit/([0-9]*)$ views/editTask.php?msg=edit&tID=$1
+
