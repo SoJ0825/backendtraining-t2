@@ -11,8 +11,8 @@ if ($taskModel->read()) {
                         <a href="process.php?send=completed&id={$taskData['id']}" class='btn btn-success btn-block my-1'><i class="fa fa-btn fa-thumbs-o-up"></i>Completed</a>
                     </div>
                 <div class="container-fluid d-flex justify-content-center p-0">
-                        <a href="edit.php?id={$taskData['id']}" class='btn btn-primary btn-block my-1 mr-1'><i class="fa fa-btn fa-pencil"></i>Edit</a>
-                        <a href="process.php?send=delete&id={$taskData['id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
+                <a href="http://localhost/backendtraining-t2/edit/{$taskData['id']}" class='btn btn-primary btn-block my-1 mr-1'><i class="fa fa-btn fa-pencil"></i>Edit</a>
+                <a href="process.php?send=delete&id={$taskData['id']}" class='btn btn-danger btn-block my-1 ml-1'><i class="fa fa-btn fa-trash"></i>Delete</a>
                  </div>
                 </div>
             </div>

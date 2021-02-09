@@ -1,0 +1,6 @@
+RewriteEngine ON
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^edit/([0-9]+)?$ edit.php?id=$1 [QSA,L]
+RewriteRule ^404/([0-9]+)?$ 404.php [QSA,L]
