@@ -1,25 +1,20 @@
 <?php
-include('./includes/class-autoload.inc.php');
-
 $taskModel = new TaskModel();
-if (isset($_POST['submit'])) {
+if ($send == 'submit') {
     $task = $_POST['task'];
     $taskModel->create($task);
 
     header("location: http://localhost/backendtraining-t2/");
-} else if ($_GET['send'] === 'delete') {
-    $id = $_GET['id'];
+} else if ($send == 'delete') {
     $taskModel->delete($id);
 
     header("location: http://localhost/backendtraining-t2/");
-} else if ($_GET['send'] === 'update') {
-    $id = $_GET['id'];
+} else if ($send == 'update') {
     $task = $_POST['task'];
     $taskModel->update($id, $task);
 
     header("location: http://localhost/backendtraining-t2/");
-} else if ($_GET['send'] === 'completed') {
-    $id = $_GET['id'];
+} else if ($send == 'completed') {
     $taskModel->completed($id);
 
     header("location: http://localhost/backendtraining-t2/");

@@ -1,5 +1,4 @@
 <?php
-// include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
 ?>
 
@@ -22,7 +21,7 @@ require_once("./templates/header.php");
             </h3>
             <div class="panel-body ">
                 <!-- New Task Form -->
-                <form action="process.php" method="post" class="form-horizontal">
+                <form action="http://localhost/backendtraining-t2/process/submit" method="post" class="form-horizontal">
                     <!-- Task Name -->
                     <div class="form-group p-2">
                         <div class="">

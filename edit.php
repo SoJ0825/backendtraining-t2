@@ -1,19 +1,7 @@
 <?php
-// include "./includes/class-autoload.inc.php";
 require_once("./templates/header.php");
 
-$request = $_SERVER['REQUEST_URI'];
-$router = str_replace('/backendtraining-t2', '', $request);
-$arr = explode('/', $router);
-print_r($arr);
-$id = '';
-if (isset($arr[2])) {
-    $id = $arr[2];
-}
-
 $taskModel = new TaskModel();
-
-// $taskData = $taskModel->select($_GET['id']);
 $taskData = $taskModel->select($id);
 $taskId = $taskData['id'];
 $task = $taskData['task'];
@@ -30,7 +18,7 @@ $task = $taskData['task'];
 <div class="row">
     <div class="col-md-7 mx-auto">
         <!-- form input -->
-        <form method="POST" action="http://localhost/backendtraining-t2/process.php?send=update&id=<?php echo $taskId ?>">
+        <form method="POST" action="http://localhost/backendtraining-t2/process/update/<?php echo $taskId ?>">
 
             <div class="form-group">
                 <h3>Content </h3>

@@ -1,5 +1,6 @@
 RewriteEngine ON
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php [QSA,L]
 RewriteRule ^edit/([0-9]+)?$ edit.php?id=$1 [QSA,L]
+RewriteRule ^process/([0-9]+)?/([0-9]+)?$ process.php?send=$1&id=$2 [QSA,L]
