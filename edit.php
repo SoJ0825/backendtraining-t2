@@ -6,18 +6,18 @@ $database = new Database();
 $db = $database->connect();
 
 if(isset($_GET['id'])){
-    $Id = $_GET['id'];
-    $stmt = $db->prepare("SELECT * FROM Task WHERE Id = ?");
-    $stmt->execute([$Id]);
-    $task_name = $stmt->fetch()['Task_name'];
+    $id = $_GET['id'];
+    $stmt = $db->prepare("SELECT * FROM task WHERE id = ?");
+    $stmt->execute([$id]);
+    $taskName = $stmt->fetch()['task_name'];
 }
 
-if(isset($_POST['task-name'])){
-    $Id = $_GET['id'];
-    $task_name = $_POST['task-name'];
+if(isset($_POST['task_name'])){
+    $id = $_GET['id'];
+    $taskName = htmlentities($_POST['task_name']);
 
-    $stmt = $db->prepare("UPDATE Task SET Task_name = :Task_name WHERE Id = :Id");
-    $stmt->execute(array('Task_name' => $task_name, 'Id' => $Id));
+    $stmt = $db->prepare("UPDATE task SET task_name = :task_name WHERE id = :id");
+    $stmt->execute(array('task_name' => $taskName, 'id' => $id));
     header("Location: index.php");
 }
 
@@ -34,9 +34,9 @@ if(isset($_POST['task-name'])){
                 <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST" class="form-horizontal">
                     <!-- Task Name -->
                     <div class="form-group">
-                        <label for="task-name" class="col-sm-3 control-label">Task</label>
+                        <label for="task_name" class="col-sm-3 control-label">Task</label>
                         <div class="col-sm-6">
-                            <input type="text" name="task-name" id="task-name" class="form-control" value="<?php echo $task_name?>">
+                            <input type="text" name="task_name" id="task_name" class="form-control" value="<?php echo $task_name?>">
                         </div>
                     </div>
 

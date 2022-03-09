@@ -5,8 +5,8 @@ if(isset($_GET['id'])){
     $database = new Database();
     $db = $database->connect();
 
-    $Id = $_GET['id'];
-    $stmt = $db->prepare("UPDATE Task SET Completed = 1 WHERE id = ?");
-    $stmt->execute([$Id]);
+    $id = $_GET['id'];
+    $stmt = $db->prepare("UPDATE task SET completed = 1 WHERE id = ?");
+    $stmt->execute([$id]);
     header("Location: index.php");
 }

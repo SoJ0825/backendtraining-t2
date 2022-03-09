@@ -5,8 +5,8 @@ if(isset($_GET['id'])){
     $database = new Database();
     $db = $database->connect();
 
-    $Id = $_GET['id'];
-    $stmt = $db->prepare("DELETE FROM Task WHERE id = ?");
-    $stmt->execute([$Id]);
+    $id = $_GET['id'];
+    $stmt = $db->prepare("DELETE FROM task WHERE id = ?");
+    $stmt->execute([$id]);
     header("Location: index.php");
 }
